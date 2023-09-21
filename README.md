@@ -175,10 +175,11 @@ We'll need to generate AWS CLI credits from IAM User in order to the user AWS CL
 
 Terraform sources their providers and modules from the Terraform registry which is located at [registry.terraform.io](https://registry.terraform.io/).
 
-**Difference between Provider and Module**  
-- Provider: Cloud service provider that you directly interact with via Terraform. It is an interface to APIs that will allow to create resources in terraform.
+**Difference between Provider and Module** 
+- Providers are the direct interfaces to APIs; modules are templates. 
+- **Provider**: Cloud service provider that you directly interact with via Terraform. It is an interface to APIs that will allow to create resources in terraform.
   - Examples: AWS, Azure, GCP, Kubernetes, Oracle Cloud Structure
-- [Module](https://developer.hashicorp.com/terraform/language/modules): Modules are containers for multiple resources that are used together. A module consists of a collection of `.tf` and/or `.tf.json` files kept together in a directory. Modules are the main way to package and reuse resource configurations with Terraform. 
+- [**Module**](https://developer.hashicorp.com/terraform/language/modules): Modules are containers for multiple resources that are used together. A module consists of a collection of `.tf` and/or `.tf.json` files kept together in a directory. Modules are the main way to package and reuse resource configurations with Terraform. 
 
 - [Official Terraform Registry](https://registry.terraform.io/)
 - [More on Terraform `random` provider](https://registry.terraform.io/providers/hashicorp/random/latest/docs)
