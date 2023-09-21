@@ -169,6 +169,96 @@ We'll need to generate AWS CLI credits from IAM User in order to the user AWS CL
 
 <br>
 
+# Issue #9 Terraform random bucket name
+
+**Terraform Registry**
+
+Terraform sources their providers and modules from the Terraform registry which is located at [registry.terraform.io](https://registry.terraform.io/).
+
+**Difference between Provider and Module**  
+- Provider: Cloud service provider that you directly interact with via Terraform. It is an interface to APIs that will allow to create resources in terraform.
+  - Examples: AWS, Azure, GCP, Kubernetes, Oracle Cloud Structure
+- [Module](https://developer.hashicorp.com/terraform/language/modules): Modules are containers for multiple resources that are used together. A module consists of a collection of `.tf` and/or `.tf.json` files kept together in a directory. Modules are the main way to package and reuse resource configurations with Terraform. 
+
+- [Official Terraform Registry](https://registry.terraform.io/)
+- [More on Terraform `random` provider](https://registry.terraform.io/providers/hashicorp/random/latest/docs)
+- [Terraform AWS documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
+
+#### `terraform init`
+
+At the start of a new terraform project we will run `terraform init` to download the binaries for the terraform providers that we'll use in this project. 
+
+#### `terraform plan`
+
+Generates an overview bill of what is going to change from the current set of resources.
+
+#### `terraform apply`
+
+Applies the changes planned in the `terraform plan`, meaning the command executes the provisioning of the resources.
+- In Andrew's words: this will run a plan and pass the changeset to be executed by terraform. `apply` will prompt yes or no. 
+- For automatic approval to execute the `apply` without entering yes, use the tag `--auto-approve`.
+
+#### Terraform Lock Files
+
+`.terraform.lock.hcl` contains the locked versioning for the providers or modules that should be used with this project.
+
+The Terraform Lock File should be committed to your Version Control System (VSC) eg. Github
+
+<br>
+
+#### Terraform State Files
+
+- `.terraform.tfstate` contain information about the current state of your infrastructure. 
+
+- This file **should not be committed** to your VCS. This file can contain sensitive data. If you lose this file, you lose the knolwedge of the state of your infrastructure.
+
+- `.terraform.tfstate.backup` is the previous state file state. 
+
+#### Terraform Directory
+
+- `.terraform` directory contains binaries of terraform provider. 
+
+<br>
+
+#### **Terraform Commands**
+
+**Main commands:**
+- `init`          Prepare your working directory for other commands  
+- `validate`      Check whether the configuration is valid  
+- `plan`          Show changes required by the current configuration  
+- `apply`         Create or update infrastructure  
+- `destroy`       Destroy previously-created infrastructure  
+
+**All other commands:**
+- `console`       Try Terraform expressions at an interactive command prompt 
+- `fmt`           Reformat your configuration in the standard style  
+- `force-unlock`  Release a stuck lock on the current workspace  
+- `get`           Install or upgrade remote Terraform modules  
+- `graph`         Generate a Graphviz graph of the steps in an operation  
+- `import`        Associate existing infrastructure with a Terraform resource  
+- `login`         Obtain and save credentials for a remote host  
+- `logout`        Remove locally-stored credentials for a remote host  
+- `metadata`      Metadata related commands  
+- `output`        Show output values from your root module  
+- `providers`     Show the providers required for this configuration  
+- `refresh`       Update the state to match remote systems  
+- `show`          Show the current state or a saved plan  
+- `state`         Advanced state management  
+- `taint`         Mark a resource instance as not fully functional  
+- `test`          Experimental support for module integration testing  
+- `untaint`       Remove the 'tainted' state from a resource instance  
+- `version`       Show the current Terraform version  
+- `workspace`     Workspace management  
+
+<br>
+
+#### Change set
+
+`terraform plan`
+- The comparison between the current state of the resources and the changes that will be made to the resources
+
+<br>
+
 ## References
 - `chmod`: https://en.wikipedia.org/wiki/Chmod
 - `shebang`: https://en.wikipedia.org/wiki/Shebang_(Unix)
