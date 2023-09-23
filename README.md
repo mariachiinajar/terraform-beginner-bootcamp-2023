@@ -263,6 +263,7 @@ The Terraform Lock File should be committed to your Version Control System (VSC)
 `terraform plan`
 - The comparison between the current state of the resources and the changes that will be made to the resources
 
+<br>
 
 ## Week 0 Terraform Cloud and Terraform login
 
@@ -292,7 +293,11 @@ Then paste the following.
 }
 ```
 
+<br>
 
+## Week 0 Terraform Cloud and Terraform login
+
+We have automated this workaround with the following bash script [bin/generate_tfrc_credentials]
 
 <br>
 
