@@ -263,6 +263,37 @@ The Terraform Lock File should be committed to your Version Control System (VSC)
 `terraform plan`
 - The comparison between the current state of the resources and the changes that will be made to the resources
 
+
+## Week 0 Terraform Cloud and Terraform login
+
+- Terraform workspace: a container in Terraform Cloud for infrastructure state, configurations, and settings. 
+- Terraform project: an overarching effort or goal, potentially consisting of multiple Terraform Cloud workspaces.
+
+### Issues with Terraform Cloud & Gitpod Workspace
+
+When attempting to run `terraform login`, it will launch a wiswig view in bash to generate a token. However, this does not work as expected in Gitpod VS code in the browser. The workaround is to manually generate a token in the [Terraform Cloud console](https://app.terraform.io/app/settings/tokens). 
+
+Then create the credentials file manually: 
+
+```
+touch /home/gitpod/.terraform.d/credentials.tfrc.json
+open /home/gitpod/.terraform.d/credentials.tfrc.json
+```
+
+Then paste the following.
+
+```
+{
+    "credentials": {
+        "app.terraform.io": {
+            "token": "You generate this token on Terraform Cloud Console."
+        }
+    }
+}
+```
+
+
+
 <br>
 
 ## References

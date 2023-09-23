@@ -1,16 +1,21 @@
 terraform {
-  required_providers {
-    random = {
-      source  = "hashicorp/random"
-      version = "3.5.1"
-    }
+  # backend "remote" {
+  #   hostname     = "app.terraform.io"
+  #   organization = "mariachiinajar"
+  # }
 
-    aws = {
-      source  = "hashicorp/aws"
-      version = "5.16.2"
+  # workspaces {
+  #   name = "terra-house"
+  # }
+
+  cloud {
+    organization = "mariachiinajar"
+    workspaces {
+      name = "terra-house"
     }
   }
 }
+
 
 provider "aws" {
 
