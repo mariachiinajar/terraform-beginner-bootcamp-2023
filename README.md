@@ -198,6 +198,11 @@ Applies the changes planned in the `terraform plan`, meaning the command execute
 - In Andrew's words: this will run a plan and pass the changeset to be executed by terraform. `apply` will prompt yes or no. 
 - For automatic approval to execute the `apply` without entering yes, use the tag `--auto-approve`.
 
+#### `terraform destroy`
+
+- `terraform destory`: destroys all the resources that you created with the command `terraform apply`. This is the safest way to get rid of the resources. After having created resources with Terraform, cleaning up resources may accidently leave out some resources running undestroy. This may incur unexpected charges (and yes, I got charged 30 USD for the mistake. Shhh... 🤫 although this is not a secret.)
+
+
 #### Terraform Lock Files
 
 `.terraform.lock.hcl` contains the locked versioning for the providers or modules that should be used with this project.
