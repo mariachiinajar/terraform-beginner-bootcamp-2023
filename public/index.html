@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Playfair+Display:wght@400;600&family=Roboto&display=swap" rel="stylesheet">
+    
+    <title>My Test Terratown House</title>
+    <style>
+        .fonts {
+            font-family: "Playfair Display";
+        }
+        .fonts-head1 {
+            font-weight: 800;
+            font-size: 2.25rem;
+        }
+        #mariachi {
+            background: #fdeca7;
+        }
+        #hat-strip {
+            color: #ba272d;
+        }
+        .div-text {
+            margin-left: 15%;
+            width: 35%;
+            height: 100vh;
+            justify-content: end;
+        }
+        .div-image {
+            width: 100%;
+        }
+        .images {
+            width: 35%;
+            border-radius: 20px;
+        }
+
+        .parent {
+            display: flex;
+            width: 100%;
+            /* min-height: 50vh; */
+            justify-content: center;
+            align-items: center;
+        }
+        .child {
+            width: fit-content;
+            block-size: fit-content;
+        }
+    </style>
+</head>
+
+<body class="body">
+    <div class="parent" style="margin-top: 7.5%;">
+        <div class="child fonts div-text">
+            <h1 class="fonts-head1">Nomad in Fashion!</h1>
+            <p><span id="mariachi"><strong>No<span id="hat-strip">mad</strong></span>iachi</span> popped into a nearby H&M<br>for autumn shopping after herding s3 buckets in Terraform, Terra Town.</p>
+            <p>Which colour is better in your opinion?</p>
+        </div>
+        <div>
+            <!-- Please replace the images with your own. -->
+            <img src="assets/shopping_after_work01.jpg" class="images" />
+            <img src="assets/shopping_after_work02.jpg" class="images" />
+        </div>
+    </div>
+</body>
+</html>
