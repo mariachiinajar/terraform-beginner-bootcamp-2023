@@ -4,6 +4,8 @@
 
 - [Week 1 Live stream](#week-1-live-stream)
   - [Week 1 Live agenda](#week-1-live-stream-agenda)
+- [Journal TOC and Major Version]()
+  - [Journal TOC and Major Version - Medium Blog](https://medium.com/@gwenleigh/terraform-cloud-project-bootcamp-with-andrew-brown-journal-toc-and-major-version-for-good-33a9084a3d47)
 
 <br>
 
@@ -62,5 +64,17 @@ aws cloudfront list-cloud-front-origin-access-identities
 - ✅ 3. Create a CloudFront distribution and tweak around the configuration to host your static html website.
 
 The detailed documentation with fancy schmancy full-colour screentshots available at [my Medium blog post](https://medium.com/@gwenleigh/terraform-cloud-project-bootcamp-with-andrew-brown-week-1-live-streaming-d22e2c6ef5e)
+
+<br>
+
+### Journal TOC and Major Version
+
+we restructured the giant README.md file into more smaller chunks so it’s easier to understand the structure.
+
+- [Simpler README.md](https://github.com/mariachiinajar/terraform-beginner-bootcamp-2023/tree/19-create-toc-readme)
+- [Weekly journals in journal folder](https://github.com/mariachiinajar/terraform-beginner-bootcamp-2023/tree/main/journal)
+- [Weekly journal with Table of Content (TOC)](https://github.com/mariachiinajar/terraform-beginner-bootcamp-2023/blob/main/journal/week0.md)
+
+You can compared the difference by comparing the [new documentation](https://github.com/mariachiinajar/terraform-beginner-bootcamp-2023/tree/19-create-toc-readme) against the [old version](https://github.com/mariachiinajar/terraform-beginner-bootcamp-2023/tree/18-week-1-livestream-cloudfront-s3-static-website-hosting).
 
 <br>
