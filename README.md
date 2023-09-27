@@ -14,7 +14,10 @@ Our Terra Town architecture
 
 ## Resources
 
+**Week 1**
 - [Github Markdown TOC Generator](https://ecotrust-canada.github.io/markdown-toc/)
+- [Standard Module Structure](https://developer.hashicorp.com/terraform/language/modules/develop/structure)
+- [Input Variables](https://developer.hashicorp.com/terraform/language/values/variables)
 
 <br>
 
