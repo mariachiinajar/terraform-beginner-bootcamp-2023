@@ -18,7 +18,9 @@
   - [What happens if we lose our state file?](#what-happens-if-we-lose-our-state-file)
   - [Fix missing resources with Terraform import](#fix-missing-resources-with-terraform-import)
   - [Fix manual configuration](#fix-manual-configuration)
-
+- [AWS Terrahouse Module](#aws-terrahouse-module)
+  - [Passing input variables](#passing-input-variables)
+  - [Module sources](#module-sources)
 
 <br>
 
@@ -173,6 +175,47 @@ You can use terraform import but it won't forall cloud resources. You need to ch
 
 ### Fix manual configuration
 
+## AWS Terrahouse Module
+
+[Modules](developer.hashicorp.com/terraform/language/modules/develop/structure)
+
+- Divide the infrastructure into two modules. 
+  - all the thing storage to storage module: S3 bucket, bucket policy, State website hosting, AWS caller identity current, 
+  - all the thing Content Deliver Network to delivery module.
+
+It is recommended to place modules in a `modules` directory when locally developing modules. You can name it however you like. 
+
+### Passing input variables
+
+We can pass input variables to our module. 
+The module has to declare the terraform variables in its own variables.tf.
+
+```
+module "terrahouse_aws" {
+    user_uuid = var.user_uuid
+    bucket_name = var.bucket_name
+}
+```
+
+### Fix using `terraform refresh`
+
+```sh
+terraform apply --refresh-only --auto-approve
+```
+
+### Module sources
+
+Using the source, we can import the module from various places such as:
+- locally
+- Github
+- Terraform Registry
+
+```sh
+module "terrahouse_aws" {
+    source = "./modules/terrahouse_aws"
+}
+```
+
 <br>
 
 ## Resources 
@@ -181,3 +224,5 @@ You can use terraform import but it won't forall cloud resources. You need to ch
 - [Import](https://developer.hashicorp.com/terraform/cli/import)
 - [S3 bucket import](registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#import)
 - [Terraform Import](registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string#import)
+- [Modules](developer.hashicorp.com/terraform/language/modules/develop/structure)
+- [Module sources](developer.hashicorp.com/terraform/language/modules/sources)
