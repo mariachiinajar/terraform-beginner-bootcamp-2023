@@ -7,11 +7,18 @@
 - [Journal TOC and Major Version](#journal-toc-and-major-version)
   - [Journal TOC and Major Version - Medium Blog](https://medium.com/@gwenleigh/terraform-cloud-project-bootcamp-with-andrew-brown-journal-toc-and-major-version-for-good-33a9084a3d47)
 - [Root Module Structure](#root-module-structure)
+  - [This session's workflow in my Medium blog post](https://medium.com/@gwenleigh/terraform-cloud-project-bootcamp-with-andrew-brown-restructure-root-module-6513ebbbf61a)
   - [Loading Terraform Input Variables](#loading-terraform-input-variables)
     - [`var` flag](#var-flag)
     - [`var-file` flag](#var-file-flag)
     - [`terraform.tfvars`](#terraformtfvars)
     - [`auto.tfvars`](#autotfvars)
+- [Dealing with configuration drift](#dealing-with-configuration-drift)
+  - [This session's workflow in my Medium blog post]()
+  - [What happens if we lose our state file?](#what-happens-if-we-lose-our-state-file)
+  - [Fix missing resources with Terraform import](#fix-missing-resources-with-terraform-import)
+  - [Fix manual configuration](#fix-manual-configuration)
+
 
 <br>
 
@@ -150,8 +157,27 @@ Terraform automatically loads a number of variable definitions files if they are
 - Any files with names ending in `.auto.tfvars` or `.auto.tfvars.json`
 - Files named exactly `terraform.tfvars.json` or `terraform.tfvars`
 
+## Terraform Import and Configuration Drift
+
+Any attribute values that are specified within Terraform config will be ignored during import and all attributes that have defaults defined within the schema will have the default assigned.
+
+## Dealing with configuration drift
+
+### What happens if we lose our state file? 
+
+If you lose your state file, you most likely have to tear down all your cloud infrastructure manually. 
+
+You can use terraform import but it won't forall cloud resources. You need to check the terraform registry and the terraform providers documentation for which resources support import.  
+
+### Fix missing resources with Terraform import
+
+### Fix manual configuration
+
 <br>
 
 ## Resources 
 - [Standard Module Structure](https://developer.hashicorp.com/terraform/language/modules/develop/structure)
 - [Input Variables](https://developer.hashicorp.com/terraform/language/values/variables)
+- [Import](https://developer.hashicorp.com/terraform/cli/import)
+- [S3 bucket import](registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#import)
+- [Terraform Import](registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string#import)
