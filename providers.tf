@@ -4,12 +4,12 @@ terraform {
   #   organization = "mariachiinajar"
   # }
 
-  cloud {
-    organization = "mariachiinajar"
-    workspaces {
-      name = "terra-house"
-    }
-  }
+  # cloud {
+  #   organization = "mariachiinajar"
+  #   workspaces {
+  #     name = "terra-house"
+  #   }
+  # }
 
   required_providers {
     random = {

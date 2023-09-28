@@ -18,6 +18,9 @@ Our Terra Town architecture
 - [Github Markdown TOC Generator](https://ecotrust-canada.github.io/markdown-toc/)
 - [Standard Module Structure](https://developer.hashicorp.com/terraform/language/modules/develop/structure)
 - [Input Variables](https://developer.hashicorp.com/terraform/language/values/variables)
+- [Import](https://developer.hashicorp.com/terraform/cli/import)
+- [S3 bucket import](registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#import)
+- [Terraform Import](registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string#import)
 
 <br>
 
