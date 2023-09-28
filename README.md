@@ -21,6 +21,8 @@ Our Terra Town architecture
 - [Import](https://developer.hashicorp.com/terraform/cli/import)
 - [S3 bucket import](registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#import)
 - [Terraform Import](registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string#import)
+- [Modules](developer.hashicorp.com/terraform/language/modules/develop/structure)
+- [Module sources](developer.hashicorp.com/terraform/language/modules/sources)
 
 <br>
 
