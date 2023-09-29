@@ -216,6 +216,50 @@ module "terrahouse_aws" {
 }
 ```
 
+## Static Website Hosting
+
+### Considerations when using ChatGPT to write Terraform
+
+LLMs such as ChatGPT may not be trained on the latest documentation or data about Terraform. 
+
+It may likely produce older or deprecated examples, often affecting `providers`.
+
+### Considerations when using Terraform to manage different types of resources
+
+In this bootcamp, we are using Terraform for all three types of management:
+- Infrastructure (resources management)
+- Configurations
+- Files
+
+Please note that Terraform is optimised and made for infrastructure management. Therefore, managing files (uploading and downloading) using terraform is not the best practice, all the more so in production environment although Terraform does offer the capabilities to perform such tasks.
+
+### Working with Files in Terraform 
+
+#### [Fileexists](https://developer.hashicorp.com/terraform/language/functions/fileexists) function
+This is a built in terraform function to check the existance of a file.
+
+```
+condition = fileexists(var.error_html_filepath)
+```
+
+#### [Filemd5](https://developer.hashicorp.com/terraform/language/functions/filemd5)
+
+
+#### Path variable
+
+In terraform there is a special variable called `path` that allows us to reference local paths:
+- `path.module` = get the path for the current module
+- `path.root` = get the path for the root module
+
+```sh
+resource "aws_s3_object" "index_html" {
+    bucket = aws_s3_bucket.website_bucket.bucket
+    key = "index.html"
+    source = var.index_html_filepath
+    etag = filemd5("${path.root}/public/index.html")
+}
+```
+
 <br>
 
 ## Resources 
@@ -226,3 +270,4 @@ module "terrahouse_aws" {
 - [Terraform Import](registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string#import)
 - [Modules](developer.hashicorp.com/terraform/language/modules/develop/structure)
 - [Module sources](developer.hashicorp.com/terraform/language/modules/sources)
+- [Resource: aws_s3_bucket_website_configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_website_configuration)
