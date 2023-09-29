@@ -190,7 +190,7 @@ It is recommended to place modules in a `modules` directory when locally develop
 We can pass input variables to our module. 
 The module has to declare the terraform variables in its own variables.tf.
 
-```
+```sh
 module "terrahouse_aws" {
     user_uuid = var.user_uuid
     bucket_name = var.bucket_name
@@ -214,6 +214,25 @@ Using the source, we can import the module from various places such as:
 module "terrahouse_aws" {
     source = "./modules/terrahouse_aws"
 }
+```
+
+### Fixing Tags
+
+[How to delete local and remote tags on Git](https://devconnected.com/how-to-delete-local-and-remote-tags-on-git/)
+
+- `git tag -d <tag_name>`: locally delete a tag
+- `git push --delete origin <tag_name>`: remotely delete tag
+
+#### Fixing previous tags (non-HEAD tags)
+1) `Checkout` the commit that you want to re-tag.   
+2) Grab the SHA from your Github commit history.  
+3) Then run the following commands:
+
+```sh
+git checkout <SHA>
+git tag M.M.P
+git push --tags
+git checkout main
 ```
 
 <br>
