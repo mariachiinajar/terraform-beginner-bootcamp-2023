@@ -1,0 +1,8 @@
+.image { 
+    width: 300px;
+    height: auto;
+}
+
+.rounded {
+    border-radius: 50px;
+}

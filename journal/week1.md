@@ -245,3 +245,4 @@ git checkout main
 - [Terraform Import](registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string#import)
 - [Modules](developer.hashicorp.com/terraform/language/modules/develop/structure)
 - [Module sources](developer.hashicorp.com/terraform/language/modules/sources)
+- [Resource: aws_s3_bucket_website_configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_website_configuration)
