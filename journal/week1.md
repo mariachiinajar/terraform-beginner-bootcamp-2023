@@ -21,6 +21,11 @@
 - [AWS Terrahouse Module](#aws-terrahouse-module)
   - [Passing input variables](#passing-input-variables)
   - [Module sources](#module-sources)
+- [Content Delivery Network](#content-delivery-network)
+  - [Data Sources](#data-sources)
+  - [Terraform locals](#terraform-locals)
+  - [Working with JSON](#working-with-json)
+
 
 <br>
 
@@ -237,6 +242,34 @@ git checkout main
 
 <br>
 
+## Content Delivery Network
+
+### Data Sources
+
+- This allows user to source data from cloud resources.
+- This is useful when we want to reference cloud resources without importing them.
+
+[Data Source: aws_caller_identity](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity)
+
+### Terraform locals
+
+This allows us to source data from cluod resources. This is useful when we want to reference cloud reousrces wihtout importing them.
+
+```
+output "account_id" {
+  value       = data.aws_caller_identity.current.account_id
+}
+```
+
+[Locals](https://developer.hashicorp.com/terraform/language/values/locals)
+
+### Working with JSON
+
+We use the `jsonencode` to create the json policy inline in HCL.
+
+
+<br>
+
 ## Resources 
 - [Standard Module Structure](https://developer.hashicorp.com/terraform/language/modules/develop/structure)
 - [Input Variables](https://developer.hashicorp.com/terraform/language/values/variables)
@@ -246,3 +279,6 @@ git checkout main
 - [Modules](developer.hashicorp.com/terraform/language/modules/develop/structure)
 - [Module sources](developer.hashicorp.com/terraform/language/modules/sources)
 - [Resource: aws_s3_bucket_website_configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_website_configuration)
+- [Data Sources](https://developer.hashicorp.com/terraform/language/data-sources)
+- [Data Source: aws_caller_identity](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity)
+- [Locals](https://developer.hashicorp.com/terraform/language/values/locals)
