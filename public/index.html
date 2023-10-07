@@ -33,8 +33,12 @@
         .div-image {
             width: 100%;
         }
-        .images {
+        .images-h {
             width: 35%;
+            border-radius: 20px;
+        }
+        .images-v {
+            width: 100%;
             border-radius: 20px;
         }
 
@@ -60,8 +64,19 @@
             <p>Which colour is better in your opinion?</p>
         </div>
         <div>
-            <img src="./assets/shopping_after_work01.jpg" class="images" />
-            <img src="./assets/shopping_after_work02.jpg" class="images" />
+            <img src="./assets/shopping_after_work01.jpg" class="images-h" />
+            <img src="./assets/shopping_after_work02.jpg" class="images-h" />
+        </div>
+    </div>
+
+    <div class="parent" style="margin-top: 7.5%;">
+        <div style="display: flex; flex-direction: column;">
+            <img src="./assets/nomad_street1.png" class="images-v" />
+            <img src="./assets/nomad_street2.png" class="images-v" />
+        </div>
+        <div class="child fonts div-text">
+            <h1 class="fonts-head1"><span id="mariachi"><strong>No<span id="hat-strip">mad</strong></span>iachi</span> on the Street</h1>
+            <p>Some photos of the Tehran Avenue in front of Coex, Samsung. Taken at the hour bewteen dog and wolf.</p>
         </div>
     </div>
 </body>
