@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Playfair+Display:wght@400;600&family=Roboto&display=swap" rel="stylesheet">
+    
+    <title>My Test Terratown House</title>
+    <style>
+        .fonts {
+            font-family: "Playfair Display";
+        }
+        .fonts-head1 {
+            font-weight: 800;
+            font-size: 2.25rem;
+        }
+        #mariachi {
+            background: #fdeca7;
+        }
+        #hat-strip {
+            color: #ba272d;
+        }
+        .portal-title {
+            font-size: 4.25rem;
+        }
+        .div-text-right {
+            margin-right: 1%;
+            width: 35%;
+            height: 100vh;
+            justify-content: end;
+        }
+        .div-text-left {
+            margin-left: 1%;
+            width: 35%;
+            height: 100vh;
+            justify-content: start;
+        }
+        .div-image {
+            width: 100%;
+        }
+        .container-image-v {
+            height: 100vh; /* Set the height of the container to 100% of the viewport height */
+            display: flex; /* Optional: Use flexbox to center the image vertically */
+            flex-direction: column;
+            justify-content: center; /* Optional: Center the image horizontally */
+            align-items: center; /* Optional: Center the image vertically */
+        }
+        .container-image-v-80 {
+            height: 50vh; /* Set the height of the container to 100% of the viewport height */
+            display: flex; /* Optional: Use flexbox to center the image vertically */
+            flex-direction: column;
+            justify-content: center; /* Optional: Center the image horizontally */
+            align-items: center; /* Optional: Center the image vertically */
+        }
+        .image-v-80 {
+            max-width: 100%; /* Ensure the image doesn't exceed the container width */
+            max-height: 100%; /* Ensure the image doesn't exceed the container height */
+            object-fit: contain; /* Optional: Preserve the image's aspect ratio and fit it within the container */
+        }
+        .images-v {
+            height: 50vh;
+            border-radius: 20px;
+        }
+        .images-h {
+            width: 35%;
+            border-radius: 20px;
+        }
+
+        .parent {
+            display: flex;
+            width: 100%;
+            /* min-height: 50vh; */
+            justify-content: center;
+            align-items: center;
+        }
+        .child {
+            width: fit-content;
+            block-size: fit-content;
+        }
+    </style>
+</head>
+
+<body class="body fonts">
+    <!-- Shopping -->
+    <div class="parent">
+        <h1 class="portal-title">Nomadic Life out of a Jar</h1>
+    </div>
+    <div class="parent" style="margin-top: 7.5%;">
+        <div class="child div-text-right">
+            <h1 class="fonts-head1">Nomad in Fashion!</h1>
+            <p><span id="mariachi"><strong>No<span id="hat-strip">mad</strong></span>iachi</span> popped into a nearby H&M<br>for autumn shopping after herding s3 buckets<br>in Terraform, Terra Town.</p>
+            <p>Which colour is better in your opinion?</p>
+        </div>
+        <div>
+            <img src="./assets/shopping_after_work01.jpg" class="images-v" />
+            <img src="./assets/shopping_after_work02.jpg" class="images-v" />
+        </div>
+    </div>
+
+    <!-- Street -->
+    <div class="parent" style="margin-top: 7.5%;">
+        <div class="container-image-v" > 
+            <!-- style="display: flex; flex-direction: column;" -->
+            <img src="./assets/nomad_street1.png" class="images-v" />
+            <img src="./assets/nomad_street2.png" class="images-v" />
+        </div>
+        <div class="child div-text-left">
+            <h1 class="fonts-head1"><span id="mariachi"><strong>No<span id="hat-strip">mad</strong></span>iachi</span> on the Street</h1>
+            <p>Some photos of the Tehran Avenue in front of Coex, Samsung.</p>
+            <p>Taken at the hour bewteen dog and wolf.</p>
+        </div>
+    </div>
+
+    <!-- Hill before dog and wolf -->
+    <div class="parent" style="margin-top: 7.5%;">
+        <div class="child div-text-right">
+            <h1 class="fonts-head1">My favourite hill</h1>
+            <p><span id="mariachi"><strong>Papa<span id="hat-strip"></strong></span>achi</span> is an amazing Terra Farmer and he grew these grapes for us!</p>
+            <p>Which colour is better in your opinion?</p>
+        </div>
+        <div>
+            <div>
+                <img src="./assets/hill_before_dog_and_wolf1.jpg" class="images-v" />
+                <img src="./assets/hill_before_dog_and_wolf2.jpg" class="images-v" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Gym out the windows -->
+    <div class="parent" style="margin-top: 7.5%;">
+        <div>
+            <img src="./assets/looking out the gym.png" class="images-v" />
+        </div>
+        <div class="child div-text-left">
+            <h1 class="fonts-head1"><span style="color:#2c6cb2;">Blue, blue</span> sky,<br>Looking out the gym!</h1>
+            <p>Looking down, townscape that spreads under your toes.</p>
+            <p>From out the windows of my favourite gym.</p>
+            <p>Looking up, the blue, blue sky floods into your eyes.</p>
+        </div>
+    </div>
+
+        <!-- Grapes -->
+        <div class="parent" style="margin-top: 7.5%;">
+            <div class="child div-text-right">
+                <h1 class="fonts-head1">Home-grown grapes!</h1>
+                <p><span id="mariachi"><strong>Papa<span id="hat-strip"></strong></span>achi</span> is an amazing Terra Farmer and <br>he grew these grapes for us!</p>
+                <p>The sweet and juicy and healthy best thing!</p>
+            </div>
+            <div>
+                <img src="./assets/grapes.png" class="images-v" />
+            </div>
+        </div>
+    
+        <!-- night street -->
+        <div class="parent" style="margin-top: 7.5%;">
+            <div>
+                <img src="./assets/night_street2.jpg" class="images-v" />
+                <img src="./assets/night_street3.jpg" class="images-v" />
+            </div>
+            <div class="child div-text-left">
+                <h1 class="fonts-head1"><span style="color:#21262d;">Night</span> with <span style="color: #FCC858;">lights</span></h1>
+                <p>Night street getting busy</p>
+                <p>Happy crowds enjoying the night</p>
+                <p>Allies and corners filled with lights</p>
+            </div>
+        </div>
+    
+        
+        <!-- Lights -->
+        <div class="parent" style="margin-top: 7.5%;">
+            <div class="child div-text-right">
+                <h1 class="fonts-head1">Those are great <span style="background-color: #AF7540; color: #F4ECDB">ideas!</span></h1>
+                <p>Every bulb is the materialisation
+                    <br>of every idea of yours.
+                </p>
+                <p>Come on, take em out
+                    <br>give em shape.
+                </p>
+            </div>
+            <div>
+                <img src="./assets/nightout.jpg" class="images-v" />
+            </div>
+        </div>
+    
+
+        <!-- Killers of the Flower Moon -->
+        <div class="parent" style="margin-top: 7.5%;">
+            <div>
+                <img src="./assets/reading.jpg" class="images-v" />
+            </div>
+            <div class="child div-text-left">
+                <h1 class="fonts-head1">Killers of the <span style="background-color: #C73C20; color: #fff9df">Flower Moon</span></h1>
+                <p>Trying to read the whole story
+                    <br>before the movie is out.
+                </p>
+                <p>Now the ads are everywhere I travel.
+                    <br>Odd strange beautiful feeling
+                    <br>that your book's universe is physically omnipresent.
+                </p>
+            </div>
+        </div>
+
+    <!-- Office -->
+    <div class="parent" style="margin-top: 7.5%;">
+        <div class="child div-text-right">
+            <h1 class="fonts-head1">My office</h1>
+            <p>Terraforming in the middle of greens</p>
+        </div>
+        <div class="container-image-v" > 
+            <!-- style="display: flex; flex-direction: column;" -->
+            <img src="./assets/office1.jpg" class="images-v" />
+            <img src="./assets/office2.jpg" class="images-v" />
+        </div>
+    </div>
+
+</body>
+</html>

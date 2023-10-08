@@ -301,6 +301,16 @@ resource "aws_instance" "web" {
 
 [`remote-exec`](https://developer.hashicorp.com/terraform/language/resources/provisioners/remote-exec) will execute commands on a machine which you target. You will need to provide credentials such as ssh to get into the machine.
 
+## 1 8 0 Assets Upload For Each
+
+For each allows us to enumerate over complex data types. 
+
+```sh
+[for s in var.list : upper(s)]
+```
+
+This is mostly useful when you are creating multiples of a cloud resource and you want to reduce the amount of repetitive terraform code.
+
 <br>
 
 ## Resources 
@@ -315,3 +325,4 @@ resource "aws_instance" "web" {
 - [Data Sources](https://developer.hashicorp.com/terraform/language/data-sources)
 - [Data Source: aws_caller_identity](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity)
 - [Locals](https://developer.hashicorp.com/terraform/language/values/locals)
+- [The for_each Meta-Argument](https://developer.hashicorp.com/terraform/language/meta-arguments/for_each)
