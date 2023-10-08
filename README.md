@@ -32,10 +32,13 @@ Our Terra Town architecture
 - [Fileexists](https://developer.hashicorp.com/terraform/language/functions/fileexists)
 - [Filemd5](https://developer.hashicorp.com/terraform/language/functions/filemd5)
 
-## Content Delivery Network
+## 1 5 0 Content Delivery Network
 - [Data Sources](https://developer.hashicorp.com/terraform/language/data-sources)
 - [Data Source: aws_caller_identity](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity)
 - [Locals](https://developer.hashicorp.com/terraform/language/values/locals)
+
+## 1 8 0 Assets Upload For Each
+- [The for_each Meta-Argument](https://developer.hashicorp.com/terraform/language/meta-arguments/for_each)
 
 <br>
 
