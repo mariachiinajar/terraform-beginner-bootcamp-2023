@@ -18,13 +18,21 @@
   - [What happens if we lose our state file?](#what-happens-if-we-lose-our-state-file)
   - [Fix missing resources with Terraform import](#fix-missing-resources-with-terraform-import)
   - [Fix manual configuration](#fix-manual-configuration)
-- [AWS Terrahouse Module](#aws-terrahouse-module)
+- [1.4.0 AWS Terrahouse Module](#aws-terrahouse-module)
   - [Passing input variables](#passing-input-variables)
   - [Module sources](#module-sources)
-- [Content Delivery Network](#content-delivery-network)
+- [1.5.0 Content Delivery Network](#content-delivery-network)
   - [Data Sources](#data-sources)
   - [Terraform locals](#terraform-locals)
   - [Working with JSON](#working-with-json)
+- [1 6 0 Content Delivery Network](#1-6-0-content-delivery-network)
+  - [Data Sources](#data-sources)
+  - [Terraform Locals](#terraform-locals)
+  - [Working with JSON](#working-with-json)
+- [1.7.0 Invalidate Cache Local Exec](#1-7-0-invalidate-cache-local-exec)
+  - [Provisioners](#provisioners)
+  - [Local-exec](#local-exec)
+  - [Remote-exec](#remote-exec)
 
 
 <br>
@@ -242,7 +250,7 @@ git checkout main
 
 <br>
 
-## Content Delivery Network
+## 1 6 0 Content Delivery Network
 
 ### Data Sources
 
@@ -267,6 +275,31 @@ output "account_id" {
 
 We use the `jsonencode` to create the json policy inline in HCL.
 
+## 1 7 0 Invalidate Cache Local Exec
+
+### Provisioners
+
+[Provisioners](https://developer.hashicorp.com/terraform/language/resources/provisioners/syntax) allow you to execute commands on compute instances eg. a AWS CLI command.
+
+They are not recommended for use by Hashicorp because Configuration Management tools such as Ansible are a better fit, but the functionality exists.
+
+### `Local-exec`
+
+[`local-exec`](https://developer.hashicorp.com/terraform/language/resources/provisioners/local-exec) will execute command on the machine running the terraform commands eg. plan apply
+
+```
+resource "aws_instance" "web" {
+  # ...
+
+  provisioner "local-exec" {
+    command = "echo The server's IP address is ${self.private_ip}"
+  }
+}
+```
+
+### Remote-exec
+
+[`remote-exec`](https://developer.hashicorp.com/terraform/language/resources/provisioners/remote-exec) will execute commands on a machine which you target. You will need to provide credentials such as ssh to get into the machine.
 
 <br>
 

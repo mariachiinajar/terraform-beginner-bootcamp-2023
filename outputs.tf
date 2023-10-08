@@ -8,6 +8,10 @@ output "s3_website_endpoint" {
   value       = module.terrahouse_aws.website_endpoint
 }
 
-# output "cloudfront_distribution_id" {
-#   value = module.terrahouse_aws.s3_distribution
-# }
+output "cloudfront_url" {
+  value = module.terrahouse_aws.cloudfront_url
+}
+
+output "cloudfront_distribution_id" {
+  value = module.terrahouse_aws.cloudfront_distribution_id
+}
