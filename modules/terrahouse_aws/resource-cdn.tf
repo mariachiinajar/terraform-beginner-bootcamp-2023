@@ -1,5 +1,5 @@
 resource "aws_cloudfront_origin_access_control" "default" {
-  name                              = "OAC-${var.bucket_name}"
+  name                              = "OAC ${var.bucket_name}"
   description                       = "Origin Access Controls for Static Website Hosting ${var.bucket_name}"
   origin_access_control_origin_type = "s3"
   signing_behavior                  = "always"
@@ -12,7 +12,7 @@ locals {
 
 resource "aws_cloudfront_distribution" "s3_distribution" {
   origin {
-    domain_name              = aws_s3_bucket.website_bucket.bucket_domain_name
+    domain_name              = aws_s3_bucket.website_bucket.bucket_regional_domain_nameg
     origin_access_control_id = aws_cloudfront_origin_access_control.default.id
     origin_id                = local.s3_origin_id
   }

@@ -18,7 +18,6 @@ variable "content_version" {
   type = number
 }
 
-
 variable "assets_path" {
   description = "path to public/assets which stores images."
   type        = string
