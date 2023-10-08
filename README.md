@@ -40,6 +40,13 @@ Our Terra Town architecture
 ## 1 8 0 Assets Upload For Each
 - [The for_each Meta-Argument](https://developer.hashicorp.com/terraform/language/meta-arguments/for_each)
 
+## 1 8 3 Tag - Fixed validation issues
+
+`Tag 1.8.3` does not exist in Andrew's repo. This is my unique tag which I tagged after fighting through a set of Week 1 validation issues. 
+Major issues that's now fixed with `tag 1.8.3`:  
+- `domain_name` was changed from `bucket_domain_name` to `bucket_regional_domain_name`.
+- Invalidations: this was a manual process and did not lead to any code change. 
+
 <br>
 
 ## References
