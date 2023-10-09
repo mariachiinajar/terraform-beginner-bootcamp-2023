@@ -27,14 +27,15 @@ class Home
   # home.town() # getter
   attr_accessor :town, :name, :description, :domain_name, :content_version
 
-  validates :town, presence: true { in: [
-    'Missingo',
-    'cooker-cove'
+  validates :town, presence: true, inclusion: { in: [
+    'missingo',
+    'cooker-cove',
     'the-nomad-pad',
     'gamers-grotto',
     'melomanic-mansion',
     'video-valley'
   ]}
+
   # visible to all users
   validates :name, presence: true
   # visible to all users
@@ -215,10 +216,12 @@ class TerraTownsMockServer < Sinatra::Base
 
     home = Home.new
     home.town = $home[:town]
+    home.domain_name = $home[:domain_name]
     home.name = name
     home.description = description
     home.domain_name = domain_name
     home.content_version = content_version
+    # binding.pry
 
     unless home.valid?
       error 422, home.errors.messages.to_json
@@ -239,8 +242,9 @@ class TerraTownsMockServer < Sinatra::Base
     end
 
     # delete from mock database
+    uuid = $home[:uuid]
     $home = {}
-    { message: "House deleted successfully" }.to_json
+    { uuid: uuid }.to_json
   end
 end
 
