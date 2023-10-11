@@ -1,23 +1,23 @@
 terraform {
-#     organization = "mariachiinajar"
+  #     organization = "mariachiinajar"
 
-#     workspaces {
-#         name = "terra-house"
-#     }
+  #     workspaces {
+  #         name = "terra-house"
+  #     }
 
-    cloud {
-        organization = "mariachiinajar"
-        workspaces {
-          name = "terraform-cloud"
-        }
+  cloud {
+    organization = "mariachiinajar"
+    workspaces {
+      name = "terraform-cloud"
     }
+  }
 }
 
 module "terrahouse_aws" {
-  source              = "./modules/terrahouse_aws"
-  user_uuid           = var.user_uuid
-  bucket_name         = var.bucket_name
+  source      = "./modules/terrahouse_aws"
+  user_uuid   = var.user_uuid
+  bucket_name = var.bucket_name
 }
 
-  # index_html_filepath = var.index_html_filepath
-  # error_html_filepath = var.error_html_filepath
+# index_html_filepath = var.index_html_filepath
+# error_html_filepath = var.error_html_filepath
