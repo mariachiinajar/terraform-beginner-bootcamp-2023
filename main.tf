@@ -1,17 +1,17 @@
-# terraform {
+terraform {
 #     organization = "mariachiinajar"
 
 #     workspaces {
 #         name = "terra-house"
 #     }
 
-#     cloud {
-#         organization = "mariachiinajar"
-#         workspaces {
-#           name = "terra-house"
-#         }
-#     }
-# }
+    cloud {
+        organization = "mariachiinajar"
+        workspaces {
+          name = "terraform-cloud"
+        }
+    }
+}
 
 module "terrahouse_aws" {
   source              = "./modules/terrahouse_aws"
