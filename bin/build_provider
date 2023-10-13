@@ -13,4 +13,4 @@ go build -o $PLUGIN_NAME
 mkdir -p $PLUGIN_DIR/x86_64/
 mkdir -p $PLUGIN_DIR/linux_amd64/
 cp $PLUGIN_NAME $PLUGIN_DIR/x86_64 
-cp $PLUGIN_NAME $PLUGIN_DIR/linux_amd64A
+cp $PLUGIN_NAME $PLUGIN_DIR/linux_amd64
