@@ -43,7 +43,7 @@ resource "terratowns_home" "home" {
     Come join my nomadinary journey? :D 
 DESCRIPTION
   # domain_name = module.terrahouse_aws.cloudfront_url
-  domain_name     = "3xf332sdfs.cloudfront.net"
+  domain_name     = "3fdq3gz.cloudfront.net"
   town            = "the-nomad-pad"
   content_version = 2
 }
