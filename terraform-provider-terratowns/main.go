@@ -52,7 +52,7 @@ func Provider() *schema.Provider {
 				Type:        schema.TypeString,
 				Sensitive:   true, // make the token as sensitive to hide in the logs.
 				Required:    true,
-				Description: "Bearer token for authorisation",
+				Description: "Bearer token for authorization",
 			},
 			"user_uuid": {
 				Type:         schema.TypeString,
@@ -156,7 +156,7 @@ func resourceHouseCreate(ctx context.Context, d *schema.ResourceData, m interfac
 	}
 
 	// Set Headers
-	req.Header.Set("Authorisation", "Bearer "+config.Token)
+	req.Header.Set("Authorization", "Bearer "+config.Token)
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("Accept", "application/json")
 
@@ -173,7 +173,7 @@ func resourceHouseCreate(ctx context.Context, d *schema.ResourceData, m interfac
 		return diag.FromErr(err)
 	}
 
-	// StatusOk = 200 HTTP Response Code
+	// StatusOK = 200 HTTP Response Code
 	if resp.StatusCode != http.StatusOK {
 		return diag.FromErr(fmt.Errorf("failed to create home resource, status_code: %d, status: %s, body: %s", resp.StatusCode, resp.Status, responseData))
 	}
@@ -204,7 +204,7 @@ func resourceHouseRead(ctx context.Context, d *schema.ResourceData, m interface{
 	}
 
 	// Set Headers
-	req.Header.Set("Authorisation", "Bearer "+config.Token)
+	req.Header.Set("Authorization", "Bearer "+config.Token)
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("Accept", "application/json")
 
@@ -225,14 +225,12 @@ func resourceHouseRead(ctx context.Context, d *schema.ResourceData, m interface{
 		d.Set("name", responseData["name"].(string))
 		d.Set("description", responseData["description"].(string))
 		d.Set("domain_name", responseData["domain_name"].(string))
-		d.Set("content_version", responseData["content_version"].(int64))
+		d.Set("content_version", responseData["content_version"].(float64))
 	} else if resp.StatusCode != http.StatusNotFound {
 		d.SetId("")
 	} else if resp.StatusCode != http.StatusOK {
 		return diag.FromErr(fmt.Errorf("failed to read home resource, status_code: %d, status: %s, body: %s", resp.StatusCode, resp.Status, responseData))
 	}
-
-	log.Print("resourceHouseRead:end")
 
 	return diags
 }
@@ -248,7 +246,7 @@ func resourceHouseUpdate(ctx context.Context, d *schema.ResourceData, m interfac
 	payload := map[string]interface{}{
 		"name":            d.Get("name").(string),
 		"description":     d.Get("description").(string),
-		"content_version": d.Get("content_version").(string),
+		"content_version": d.Get("content_version").(int),
 	}
 	payloadBytes, err := json.Marshal(payload)
 	if err != nil {
@@ -264,10 +262,9 @@ func resourceHouseUpdate(ctx context.Context, d *schema.ResourceData, m interfac
 	}
 
 	// Set Headers
-	req.Header.Set("Authorisation", "Bearer "+config.Token)
+	req.Header.Set("Authorization", "Bearer "+config.Token)
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("Accept", "application/json")
-	log.Print("resourceHouseRead:end")
 
 	client := http.Client{}
 	resp, err := client.Do(req)
@@ -276,12 +273,11 @@ func resourceHouseUpdate(ctx context.Context, d *schema.ResourceData, m interfac
 	}
 	defer resp.Body.Close()
 
-	// StatusOk = 200 HTTP Response Code
+	// StatusOK = 200 HTTP Response Code
 	if resp.StatusCode != http.StatusOK {
 		return diag.FromErr(fmt.Errorf("failed to update home resource, status_code: %d, status: %s", resp.StatusCode, resp.Status))
 	}
 
-	// handle response status
 	log.Print("resourceHouseUpdate:end")
 
 	d.Set("name", payload["name"])
@@ -307,7 +303,7 @@ func resourceHouseDelete(ctx context.Context, d *schema.ResourceData, m interfac
 	}
 
 	// Set Headers
-	req.Header.Set("Authorisation", "Bearer "+config.Token)
+	req.Header.Set("Authorization", "Bearer "+config.Token)
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("Accept", "application/json")
 
@@ -318,7 +314,7 @@ func resourceHouseDelete(ctx context.Context, d *schema.ResourceData, m interfac
 	}
 	defer resp.Body.Close()
 
-	// StatusOk = 200 HTTP Response Code
+	// StatusOK = 200 HTTP Response Code
 	if resp.StatusCode != http.StatusOK {
 		return diag.FromErr(fmt.Errorf("failed to delete home resource, status_code: %d, status: %s", resp.StatusCode, resp.Status))
 	}
