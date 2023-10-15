@@ -14,14 +14,14 @@ variable "teacherseat_user_uuid" {
 
 variable "nomadiachi" {
   type = object({
-    public_path = string
+    public_path     = string
     content_version = number
   })
 }
 
 variable "voices" {
   type = object({
-    public_path = string
+    public_path     = string
     content_version = number
   })
 }

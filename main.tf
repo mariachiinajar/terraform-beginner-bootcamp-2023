@@ -38,26 +38,27 @@ resource "terratowns_home" "home" {
     Come join my nomadinary journey? :D 
 DESCRIPTION
   domain_name     = module.home_nomadiachi_hosting.domain_name
-  town            = "missingo"
+  town            = "the-nomad-pad"
   content_version = var.nomadiachi.content_version
 }
 
 module "home_voices_hosting" {
-  source              = "./modules/terrahome_aws"
-  user_uuid           = var.teacherseat_user_uuid
-  public_path = var.voices.public_path
-  content_version     = var.voices.content_version
+  source          = "./modules/terrahome_aws"
+  user_uuid       = var.teacherseat_user_uuid
+  public_path     = var.voices.public_path
+  content_version = var.voices.content_version
 }
 
 resource "terratowns_home" "home_voices" {
-  name        = "Voices that keep me going"
-  description = <<DESCRIPTION
+  name            = "Voices that keep me going"
+  description     = <<DESCRIPTION
+    Reading is a mental nomadism. Reading quotes is traveling through million different minds and angles.
     There were many moments and days I entertained quitting. 
     But there were voices that give me nudges and pushes (and punches and smashes... and slaps and !@#$@$). 
     I'm still here and keep moving forward.
     Come have a look who are those with the badass voices. lol
 DESCRIPTION
-  domain_name = module.home_voices_hosting.domain_name
-  town            = "missingo"
+  domain_name     = module.home_voices_hosting.domain_name
+  town            = "the-nomad-pad"
   content_version = var.voices.content_version
 }
