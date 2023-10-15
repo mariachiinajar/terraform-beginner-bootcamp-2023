@@ -5,6 +5,16 @@ terraform {
       version = "1.0.0"
     }
   }
+  #     workspaces {
+  #         name = "terra-house"
+  #     }
+
+  cloud {
+    organization = "mariachiinajar"
+    workspaces {
+      name = "terra-house"
+    }
+  }
 }
 
 provider "terratowns" {
@@ -13,36 +23,41 @@ provider "terratowns" {
   token     = var.terratowns_access_token
 }
 
-#     workspaces {
-#         name = "terra-house"
-#     }
-
-#     cloud {
-#         organization = "mariachiinajar"
-#         workspaces {
-#           name = "terra-house"
-#         }
-#     }
-# }
-
-module "terrahouse_aws" {
-  source              = "./modules/terrahouse_aws"
-  user_uuid           = var.teacherseat_user_uuid
-  index_html_filepath = var.index_html_filepath
-  error_html_filepath = var.error_html_filepath
-  content_version     = var.content_version
-  assets_path         = var.assets_path
+module "home_nomadiachi_hosting" {
+  source          = "./modules/terrahome_aws"
+  user_uuid       = var.teacherseat_user_uuid
+  public_path     = var.nomadiachi.public_path
+  content_version = var.nomadiachi.content_version
 }
 
 resource "terratowns_home" "home" {
-  name        = "Nomadiachi's nomadic life"
-  description = <<DESCRIPTION
+  name            = "Nomadiachi's nomadic life"
+  description     = <<DESCRIPTION
     Mariachi works nomadically so popping in and checking out here and there.
     Pictures of some memorable moments, quick snapshots of days in and days out. 
     Come join my nomadinary journey? :D 
 DESCRIPTION
-  domain_name = module.terrahouse_aws.cloudfront_url
-  # domain_name     = "4fdq3gz.cloudfront.net"
+  domain_name     = module.home_nomadiachi_hosting.domain_name
   town            = "missingo"
-  content_version = 3
+  content_version = var.nomadiachi.content_version
+}
+
+module "home_voices_hosting" {
+  source              = "./modules/terrahome_aws"
+  user_uuid           = var.teacherseat_user_uuid
+  public_path = var.voices.public_path
+  content_version     = var.voices.content_version
+}
+
+resource "terratowns_home" "home_voices" {
+  name        = "Voices that keep me going"
+  description = <<DESCRIPTION
+    There were many moments and days I entertained quitting. 
+    But there were voices that give me nudges and pushes (and punches and smashes... and slaps and !@#$@$). 
+    I'm still here and keep moving forward.
+    Come have a look who are those with the badass voices. lol
+DESCRIPTION
+  domain_name = module.home_voices_hosting.domain_name
+  town            = "missingo"
+  content_version = var.voices.content_version
 }

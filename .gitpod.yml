@@ -7,6 +7,7 @@ tasks:
       source ./bin/install_terraform_cli
       source ./bin/generate_tfrc_credentials
       source ./bin/set_tf_alias
+      source ./bin/build_provider
   - name: sinatra
     before: | 
       cd $PROJECT_ROOT
@@ -34,5 +35,3 @@ vscode:
     - hashicorp.terraform
     - phil294.git-log--graph
     - mhutchie.git-graph
-
-    

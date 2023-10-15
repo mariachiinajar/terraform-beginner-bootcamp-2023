@@ -18,7 +18,7 @@
   - [What happens if we lose our state file?](#what-happens-if-we-lose-our-state-file)
   - [Fix missing resources with Terraform import](#fix-missing-resources-with-terraform-import)
   - [Fix manual configuration](#fix-manual-configuration)
-- [1.4.0 AWS Terrahouse Module](#aws-terrahouse-module)
+- [1.4.0 AWS terrahome Module](#aws-terrahome-module)
   - [Passing input variables](#passing-input-variables)
   - [Module sources](#module-sources)
 - [1.5.0 Content Delivery Network](#content-delivery-network)
@@ -188,7 +188,7 @@ You can use terraform import but it won't forall cloud resources. You need to ch
 
 ### Fix manual configuration
 
-## AWS Terrahouse Module
+## AWS terrahome Module
 
 [Modules](developer.hashicorp.com/terraform/language/modules/develop/structure)
 
@@ -204,7 +204,7 @@ We can pass input variables to our module.
 The module has to declare the terraform variables in its own variables.tf.
 
 ```sh
-module "terrahouse_aws" {
+module "terrahome_aws" {
     user_uuid = var.user_uuid
     bucket_name = var.bucket_name
 }
@@ -224,8 +224,8 @@ Using the source, we can import the module from various places such as:
 - Terraform Registry
 
 ```sh
-module "terrahouse_aws" {
-    source = "./modules/terrahouse_aws"
+module "terrahome_aws" {
+    source = "./modules/terrahome_aws"
 }
 ```
 
